@@ -28,10 +28,10 @@ pipeline {
         }
       }
       steps{
-        sh "helm init"
+        sh "helm init --client-only"
         sh "helm plugin install https://github.com/chartmuseum/helm-push"
         sh "helm repo add helm http://helm.dihalk.com"
-        sh "helm push . helm"
+        sh "helm push . helm --force"
       }
     }
   }
